@@ -10,7 +10,8 @@ const div = document.createElement('div');
 const id ="navigation"
 var currentPage = 1;
 var numberOfPages = 0;
-
+const addItemInput = document.querySelector('input.addItemInput');
+const addItemButton = document.querySelector('button.addItemButton');
  /*hiding all of the items in the 
    list except for the ones I want to show. 
 */
@@ -68,8 +69,8 @@ function check() {
    document.getElementById("sixPage").disabled = currentPage == numberOfPages ? true : false;
 }
 
-
-/*function hidePage() {
+///////////////////////////////////////////////////////////////*** 
+ /*function hidePage() {
    appendPageLinks();
    const stopQueue = [];
    const a = document.getElementByTagName('a');
@@ -84,9 +85,9 @@ function showPage() {
    pageLoad();
    const ul = document.qyerySelector('.pagination');
    ul.addEventListener('click', (e)=> {
-      
-   }
+   }  
 }
+
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -115,6 +116,12 @@ function appendPageLinks(list) {
       });
    }
 }
+addItemButton.addEventListener('click', () => {
+   let li = document.createElement('li');
+   li.textContent = addItemInput.nodeValue;
+
+});
+
 
 //appendPageLinks(studentListItems);
 
@@ -131,4 +138,4 @@ function appendPageLinks(list) {
   
 
 
-
+   
