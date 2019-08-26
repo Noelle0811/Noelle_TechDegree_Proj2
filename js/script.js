@@ -3,29 +3,16 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
    
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
-
  //variable holding the list of students
 const list_students = document.querySelectorAll('.student-item');
 const itemsPerPage = 10;
 const div = document.createElement('div');
-const divId ="navigation"
-var page = 2;
+const id ="navigation"
+var currentPage = 1;
+var numberOfPages = 0;
 
- /*Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show. 
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
+ /*hiding all of the items in the 
+   list except for the ones I want to show. 
 */
 const showPage = (list, page) => {
    // where index starts
@@ -44,20 +31,6 @@ const showPage = (list, page) => {
 };
 
 
-function showPages(id) {
-
-}
-var totalNumberOfPages = 6;
-for( i = 1; i <= totalNumberOfPages; i++)
- {
- if(document.getElementById('page'=i))
-   document.getElementById('page'+i).style.display ='none';
- }
- if(document.getElementById('page'+id))
-   document.getElementById('page'=id).style.display='block';
-
-
-
 // pagination buttons for the bottom of the page
 const appendButtons = list => {
    //creates DIV
@@ -71,12 +44,10 @@ const appendButtons = list => {
       //    paginationDiv.removeChild(ul)
       // }
 
-}
+} 
 appendButtons(list_students);
 
 
-
-}
 //hiding the items 
 function hidePage() {
    appendPageLinks(); 
@@ -87,6 +58,17 @@ function hidePage() {
    
  }
 }
+
+function check() {
+   document.getElementById("twoPage").disabled = currentPage == numberOfPages ? true : false;
+   document.getElementById("threePages").disabled = currentPage == 1 ? true : false;
+   document.getElementById("onePage").disabled = currentPage == 1 ? true : false;
+   document.getElementById("fourPage").disabled = currentPage == numberOfPages ? true : false;
+   document.getElementById("fivePage").disabled = currentPage == numberOfPages ? true : false;
+   document.getElementById("sixPage").disabled = currentPage == numberOfPages ? true : false;
+}
+
+
 /*function hidePage() {
    appendPageLinks();
    const stopQueue = [];

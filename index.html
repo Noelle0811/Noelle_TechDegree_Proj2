@@ -558,21 +558,23 @@
         </li>
       </ul>
       <!-- dynamically add pagination links here -->
-    <div id="navigation">
-        <a pagination="javascript: onClick=showPage('1')">page 1</a>
-        <a pagination="javascript: onClick=showPage('2')">page 2</a>
-        <a pagination="javascript: onClick=showPage('3')">page 3</a>
-        <a pagination="javascript: onClick=showPage('4')">page 4</a>
-        <a pagination="javascript: onClick=showPage('5')">page 5</a>
-        <div id="page1" style="display: none;"></div>
-        <div id="page2" style="display: none;"></div>
-        <div id="page3" style="display: none;"></div>
-        <div id="page4" style="display: none;"></div>
-        <div id="page5" style="display: none;"></div>
+    <div style="text-align:center;">
+            <input type="button" id="1" onclick="onePage()" value="1" />
+            <input type="button" id="2" onclick="twoPage()" value="2" />
+            <input type="button" id="3" onclick="threePage()" value="3" />
+            <input type="button" id="4" onclick="fourPage()" value="4" />
+            <input type="button" id="5" onclick="fivePage()" value="5" />
+            <input type="button" id="6" onclick="sixPage()" value="6" />
+            <div id="list"></div>
+
         
     </div>
     </div>
     <script src="js/script.js"></script>
   </body>
 </html>
+
+
+
+
 
