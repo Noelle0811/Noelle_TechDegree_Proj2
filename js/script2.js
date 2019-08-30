@@ -61,32 +61,48 @@ console.log(showPage(studentList,1));
    functionality to the pagination buttons.
 ***/
 
-function appendPageLinks() {// add "list" parameter
+const appendPageLinks = (list) => {// add "list" parameter
 var pageDiv = document.querySelector('.page'); //get parent
 const buttonDiv = document.createElement('div'); // create the child
 buttonDiv.className = 'pagination';
 pageDiv.appendChild(buttonDiv);// append the child
 var ul = document.createElement('ul');
 buttonDiv.appendChild(ul);
-//my loop
-//const totalPages = Math.ceil(list.lenght / onPage);
-  for (let i = 1; i < itemsPerPage + 1; i += 1) {
- var li = document.createElement('li');
-   buttonDiv.appendChild(li);
-   var a = document.createElement('a');
-   a.setAttribute("href", "#");
-   a.setAttribute("class", "");
-   a.innerHTML = i;
-   buttonDiv.appendChild(a);
-   
-  }
+
+const numberOfPages = Math.ceil(list.length / itemsPerPage);
+
+ // loop pagination links
+ for (let i = 1; i <= numberOfPages; i++) {
+   const li = document.createElement('li');
+   const a = document.createElement('a');
+   a.href = '#';
+   a.className = i === 1 ? 'active' : '';
+   a.textContent = i;
+   li.appendChild(a);
+   ul.appendChild(li);
 }
 
+// pagination click
+ul.addEventListener('click', (e) => {
+   // Remove the active links
+   for (let i = 0; i < numberOfPages; i++) {
+       ul.children[i].firstElementChild.className = '';
+   }
+   if (e.target.tagName === 'A') {
+       const page = e.target.textContent;
+       // active link click
+       e.target.className = 'active';
+
+       showPage(studentList, page);
+       showPage(list, page);
+   }
+});
+};
 
 
 
 
-//initial calls for when the page is loaded
+//to load page
 showPage(studentList, 1);
 appendPageLinks(studentList);
 
