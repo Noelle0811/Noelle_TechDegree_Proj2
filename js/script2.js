@@ -88,7 +88,7 @@ ul.addEventListener('click', (e) => {
    for (let i = 0; i < numberOfPages; i++) {
        ul.children[i].firstElementChild.className = '';
    }
-   if (e.target.tagName === 'A') {
+   if (e.target.tagName === 'a') {
        const page = e.target.textContent;
        // active link click
        e.target.className = 'active';
@@ -106,12 +106,13 @@ ul.addEventListener('click', (e) => {
 showPage(studentList, 1);
 appendPageLinks(studentList);
 
+var buttonLinks = document.querySelector('a');
+var a = document.querySelector('a');
 
-
-ul.innerHTML= htmlString;
-   ul.addEventListener('click', (e) => {
+a.innerHTML= buttonLinks;
+   a.addEventListener('click', (e) => {
       if(e.target.tagName === 'a'){
-         ul.children[0].children[0].classList.remove('active');
+         a.children[0].children[0].classList.remove('active');
         for(let i=1; i<=numOfPage; i++){
            if(e.target.innerHTML.includes(i)){
                showPage(studentList, i);
