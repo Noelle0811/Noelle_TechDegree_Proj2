@@ -69,7 +69,7 @@ pageDiv.appendChild(buttonDiv);// append the child
 var ul = document.createElement('ul');
 buttonDiv.appendChild(ul);
 //my loop
-// const numberOfPages = Math.floor(list.lenght / onPage);
+//const totalPages = Math.ceil(list.lenght / onPage);
   for (let i = 1; i < itemsPerPage + 1; i += 1) {
  var li = document.createElement('li');
    buttonDiv.appendChild(li);
@@ -79,11 +79,41 @@ buttonDiv.appendChild(ul);
    a.innerHTML = i;
    buttonDiv.appendChild(a);
    
+  }
+}
+
+
+
+
+
+//initial calls for when the page is loaded
+showPage(studentList, 1);
+appendPageLinks(studentList);
+
+
+
+ul.innerHTML= htmlString;
+   ul.addEventListener('click', (e) => {
+      if(e.target.tagName === 'a'){
+         ul.children[0].children[0].classList.remove('active');
+        for(let i=1; i<=numOfPage; i++){
+           if(e.target.innerHTML.includes(i)){
+               showPage(studentList, i);
+           }
+         }
       }
-   }
+   })
 
 
-appendPageLinks();
+//the page and name change when you click on the page buttons
+// ul.addEventListener('click', (e) => {
+//     showPage(list, event.target.textContent);
+//     removeClass();
+//       });
+  
+
+
+//appendPageLinks();
 
 
 // for (let i = 1; i < numberOfPages; i += 1) {
